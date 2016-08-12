@@ -1,0 +1,42 @@
+import sys, pygame, math;
+from pygame.locals import *;
+spaceship = ('ship.png')
+
+pygame.init()
+width = 800
+height = 600
+screen = pygame.display.set_mode((800, 600))
+space_ship = pygame.image.load(spaceship).convert_alpha()
+space_ship = pygame.transform.scale(space_ship,(50,50))
+clock = pygame.time.Clock()
+blue = (9,5,38)
+def rotater(x,y,image,mousePos):
+    angle = 360 - math.atan2(mousePos[1] - y, mousePos[0] - x) * 180 / math.pi  # Get params
+    angle = angle - 90
+    rotimage = pygame.transform.rotate(image, angle)
+    rect = rotimage.get_rect()
+    rect.centerx = x #
+    rect.centery = y
+    screen.blit(rotimage, rect)
+
+    # print(rect.centerx,rect.centery)
+
+
+
+      # I need space_ship to rotate towards my cursor
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+    screen.fill(blue)
+    pos = pygame.mouse.get_pos()
+    rect = space_ship.get_rect()
+    rect.x += width/2
+    rect.y+= height/2
+
+
+    rotater(rect.centerx,rect.centery,space_ship,pos)
+
+    pygame.display.update()
+
