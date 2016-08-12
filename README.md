@@ -1,5 +1,5 @@
 # Pharos-Pygame-Spaceshooter-Game
-A spaceshooter game I made using pygame
+A spaceshooter game I made using pygame. Run main to begin
 
 Trailer: https://www.youtube.com/watch?v=qADbcAYHE-8
 
